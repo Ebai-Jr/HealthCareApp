@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css?family=McLaren|Montserrat&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.home, .register, .dashboard{
+  display: flex;
+  min-height: calc(100vh - 50px); /* Subtracting navbar height */
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  width: 100%;
+}
+
+/* For Register Page */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 30px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  color: #1a83ff;
+  font-weight: 700;
+}
+
+.underline {
+  width: 61px;
+  height: 6px;
+  background-color: #1a83ff;
+  border-radius: 9px;
+}
+
+.inputs {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 80px;
+  background: #eaeaea;
+  border-radius: 6px;
+}
+
+.input label {
+  margin: 0px 30px;
+}
+
+.input input {
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #797979;
+  background: transparent;
+  font-size: 19px;
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 59px;
+  background: #1a83ff;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.input select {
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #797979;
+  background: transparent;
+  font-size: 19px;
+}
+
+/* Reports */
+.form label {
+  margin: 0px 30px;
+}
+
+.report-form-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 30px;
+}
+
+.report-input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 80px;
+  background: #eaeaea;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.report-input label {
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #797979;
+  background: transparent;
+  font-size: 19px;
+  margin: auto;
+}
+
+.report-form {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 200px;
+  background: #eaeaea;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.report-form textarea {
+  width: 400px;
+  height: 180px;
+  border: none;
+  outline: none;
+  font-size: 19px;
+  margin: auto;
+}
