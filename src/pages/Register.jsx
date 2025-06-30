@@ -1,8 +1,6 @@
 import React from 'react';
-import axios from 'axios'; // Allows you use its methods (like axios.get(), axios.post(), axios.put(), axios.delete()
+import axios from 'axios'; // to make HTTP requests Allows you use its methods (like axios.get(), axios.post(), axios.put(), axios.delete()
 import { useState } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from "react-icons/ai";
 
 const Register = () => {
     const [formData, setFormData] = useState({
