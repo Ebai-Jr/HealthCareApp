@@ -109,7 +109,8 @@
   font-size: 19px;
 }
 
-/* Reports */
+
+/* Reports Page*/
 .form label {
   margin: 0px 30px;
 }
@@ -162,4 +163,43 @@
   outline: none;
   font-size: 19px;
   margin: auto;
+}
+
+
+/* HOME PAGE */
+.home-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.risk-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.risk-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  min-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.risk-button.low {
+  background-color: #2ecc71;
+}
+
+.risk-button.medium {
+  background-color: #f39c12;
+}
+
+.risk-button.high {
+  background-color: #e74c3c;
 }
