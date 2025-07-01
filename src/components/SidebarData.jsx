@@ -28,4 +28,10 @@ export const SidebarData = [
     icon: <AiIcons.AiFillBook />,
     cName: 'nav-text'
   },
+  {
+    title: 'Profile',
+    path: '/profile',
+    icon: <IoIcons.IoIosClock />,
+    cName: 'nav-text'
+  },
 ]
