@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ReportSymptoms from './pages/ReportSymptoms';
 import Profile from './pages/Profile';
+import MapView from './pages/MapView';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/Dashboard' Component={Dashboard} />
           <Route path='/reports' Component={ReportSymptoms} />
           <Route path='/profile' Component={Profile} />
+          <Route path='/mapview' Component={MapView} />
         </Routes>
       </Router>
     </>

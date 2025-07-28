@@ -34,4 +34,10 @@ export const SidebarData = [
     icon: <IoIcons.IoIosClock />,
     cName: 'nav-text'
   },
+  {
+    title: 'MapView',
+    path: '/mapview',
+    icon: <IoIcons.IoIosMap />,
+    cName: 'nav-text'
+  },
 ]
