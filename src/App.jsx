@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import ReportSymptoms from './pages/ReportSymptoms';
 import Profile from './pages/Profile';
 import MapView from './pages/MapView';
+import Login from './pages/Login';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' Component={Home} />
           <Route path='/Register' Component={Register} />
+          <Route path='/Login' Component={Login} />
           <Route path='/Dashboard' Component={Dashboard} />
           <Route path='/reports' Component={ReportSymptoms} />
           <Route path='/profile' Component={Profile} />

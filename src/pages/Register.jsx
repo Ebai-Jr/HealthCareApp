@@ -11,7 +11,6 @@ const Register = () => {
     doctor_name: '',
     doctor_email: ''
   });
-  
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -23,11 +22,19 @@ const Register = () => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
+
     try {
       const response = await axios.post(
         'https://0n3kbcjn67.execute-api.us-east-1.amazonaws.com/register',
         formData
       );
+
+      if (response.data.user_id) {
+        // Save user_id + email to localStorage for persistence
+        localStorage.setItem('user_id', response.data.user_id);
+        localStorage.setItem('email', formData.email);
+      }
+
       setMessage(response.data.message || 'Registration successful');
     } catch (err) {
       console.error(err);
@@ -41,36 +48,35 @@ const Register = () => {
     <div className="form-container">
       <div className="form-header">
         <h2>Register</h2>
-        <div className='underline'></div>
+        <div className="underline"></div>
       </div>
-
       <form onSubmit={handleSubmit}>
-        <div className='inputs'>
-          <div className='input'>
+        <div className="inputs">
+          <div className="input">
             <label>Full Name</label>
             <input
               type="text"
               name="full_name"
-              placeholder='Enter your full name'
+              placeholder="Enter your full name"
               value={formData.full_name}
               onChange={handleChange}
               required
             />
           </div>
 
-          <div className='input'>
+          <div className="input">
             <label>Email</label>
             <input
               type="email"
               name="email"
-              placeholder='Enter your email address'
+              placeholder="Enter your email address"
               value={formData.email}
               onChange={handleChange}
               required
             />
           </div>
 
-          <div className='input'>
+          <div className="input">
             <label>Chronic Condition</label>
             <select
               name="chronic_condition"
@@ -86,57 +92,51 @@ const Register = () => {
             </select>
           </div>
 
-          {/* Caretaker info */}
-          <div className='input'>
+          <div className="input">
             <label>Caretaker Name</label>
             <input
               type="text"
               name="caretaker_name"
-              placeholder='Enter caretaker name'
+              placeholder="Enter caretaker's name"
               value={formData.caretaker_name}
               onChange={handleChange}
-              required
             />
           </div>
 
-          <div className='input'>
+          <div className="input">
             <label>Caretaker Email</label>
             <input
               type="email"
               name="caretaker_email"
-              placeholder='Enter caretaker email'
+              placeholder="Enter caretaker's email"
               value={formData.caretaker_email}
               onChange={handleChange}
-              required
             />
           </div>
 
-          {/* Doctor info */}
-          <div className='input'>
+          <div className="input">
             <label>Doctor Name</label>
             <input
               type="text"
               name="doctor_name"
-              placeholder='Enter doctor name'
+              placeholder="Enter doctor's name"
               value={formData.doctor_name}
               onChange={handleChange}
-              required
             />
           </div>
 
-          <div className='input'>
+          <div className="input">
             <label>Doctor Email</label>
             <input
               type="email"
               name="doctor_email"
-              placeholder='Enter doctor email'
+              placeholder="Enter doctor's email"
               value={formData.doctor_email}
               onChange={handleChange}
-              required
             />
           </div>
 
-          <div className='submit'>
+          <div className="submit">
             <button type="submit" disabled={loading}>
               {loading ? 'Registering...' : 'Register'}
             </button>
@@ -150,6 +150,7 @@ const Register = () => {
 };
 
 export default Register;
+
 
 
 // import React from 'react';
