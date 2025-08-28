@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Login = () => {
@@ -8,6 +8,16 @@ const Login = () => {
   });
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [alreadyLoggedIn, setAlreadyLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if user is already logged in
+    const storedUserId = localStorage.getItem('user_id');
+    if (storedUserId) {
+      setAlreadyLoggedIn(true);
+      setMessage('✅ You are already logged in.');
+    }
+  }, []);
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,22 +34,43 @@ const Login = () => {
         formData
       );
 
-      if (response.data.user_id) {
-        // Save user_id locally to reuse for SOS alerts
-        localStorage.setItem('user_id', response.data.user_id);
-        localStorage.setItem('email', formData.email);
+      if (response.data.user) {
+        const user = response.data.user;
 
-        setMessage('Login successful');
+        // Save user data locally for later use
+        localStorage.setItem('user_id', user.user_id);
+        localStorage.setItem('full_name', user.full_name);
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('caretaker_email', user.caretaker_email);
+        localStorage.setItem('doctor_email', user.doctor_email);
+        localStorage.setItem('chronic_condition', user.chronic_condition);
+        localStorage.setItem('location', user.location);
+
+        setMessage('✅ Login successful');
+        setAlreadyLoggedIn(true);
       } else {
-        setMessage('Invalid login credentials');
+        setMessage('❌ Invalid login credentials');
       }
     } catch (err) {
       console.error(err);
-      setMessage('Login failed');
+      setMessage('❌ Login failed');
     } finally {
       setLoading(false);
     }
   };
+
+    // If already logged in, show a message instead of the login form
+//   if (alreadyLoggedIn) {
+//     return (
+//       <div className="form-container">
+//         <div className="form-header">
+//           <h2>Login</h2>
+//           <div className="underline"></div>
+//         </div>
+//         <p>{message}</p>
+//       </div>
+//     );
+//   }
 
   return (
     <div className="form-container">
