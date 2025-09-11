@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Dashboard from './Dashboard'; // ✅ import the dashboard
 
 const Home = () => {
   const [userId, setUserId] = useState(null);
@@ -75,6 +76,7 @@ const Home = () => {
   };
 
   return (
+    <>
     <div className="home-container">
       <h1>How Are You Feeling Today?</h1>
       <p>Select your current health risk level to request the appropriate support:</p>
@@ -91,6 +93,11 @@ const Home = () => {
         </button>
       </div>
     </div>
+
+    {/* ✅ Dashboard appears below */}
+    <Dashboard />
+
+    </>
   );
 };
 
